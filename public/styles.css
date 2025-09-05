@@ -1,89 +1,130 @@
-body {
-    font-family: sans-serif;
-    background-color: #121212;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background-color: #1e1e1e;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
-}
-
-h1 {
-    color: #bb86fc;
-}
-
-.rating-stars {
-    font-size: 3rem;
-    cursor: pointer;
-    margin: 1.5rem 0;
-}
-
-.star {
-    color: #6a6a6a;
-    transition: color 0.2s;
-}
-
-.star.active {
-    color: #ffd700;
-}
-
-/* Novo estilo para o hover */
-.star:hover {
-    color: #ffc107; /* Cor ligeiramente mais clara no hover */
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6); /* Efeito de blur dourado */
-    transform: scale(1.1); /* Um leve aumento para destacar */
-}
-
-/* Novo estilo para o hover, mas apenas nas estrelas "ativas" */
-.star.active:hover {
-    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8); /* Blur mais intenso para estrelas ativas no hover */
-    transform: scale(1.15);
-}
-
-textarea {
-    width: 90%;
-    height: 100px;
-    margin: 1rem 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    background-color: #2c2c2c;
-    color: #fff;
-    resize: none;
-}
-
-#submit-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: #6200ee;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#submit-btn:hover:not(:disabled) {
-    background-color: #4b00b4;
-}
-
-#submit-btn:disabled {
-    background-color: #555;
-    cursor: not-allowed;
-}
-
-#message {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: #03dac6;
-}
+        /* Estilo Geocities - Windows XP Theme */
+        @import url('https://unpkg.com/xp.css');
+        
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #008080 url('https://web.archive.org/web/20091027053831/http://geocities.com/psiserver/backgrounds/background26.gif');
+            color: #000;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            background: #FFE4E1;
+            border: 4px double #FF69B4;
+            padding: 20px;
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #FF0000;
+            text-shadow: 2px 2px 0 #FFD700;
+            font-size: 28px;
+            background: url('https://web.archive.org/web/20091027045523/http://www.geocities.com/EnchantedForest/Cottage/4756/star3.gif') no-repeat center top;
+            padding-top: 40px;
+            margin-top: 0;
+        }
+        
+        .rating-stars {
+            font-size: 3rem;
+            cursor: pointer;
+            margin: 1.5rem 0;
+        }
+        
+        .star {
+            color: #CCC;
+            transition: color 0.2s;
+            text-shadow: 2px 2px 0 #888;
+        }
+        
+        .star.active {
+            color: #FFD700;
+            text-shadow: 2px 2px 0 #FF8C00;
+        }
+        
+        .star:hover {
+            color: #FFA500;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            transform: scale(1.1);
+        }
+        
+        .star.active:hover {
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+            transform: scale(1.15);
+        }
+        
+        textarea {
+            width: 90%;
+            height: 100px;
+            margin: 1rem 0;
+            padding: 10px;
+            border: 2px inset;
+            background: #FFF;
+            color: #000;
+            resize: none;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        
+        #submit-btn {
+            margin: 10px 0;
+        }
+        
+        #message {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #008000;
+            font-weight: bold;
+        }
+        
+        .geocities-banner {
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            background: #000080;
+            color: #FFF;
+            font-weight: bold;
+            border: 2px solid #FFD700;
+        }
+        
+        .counter {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            color: #FF0000;
+            font-weight: bold;
+        }
+        
+        .blink {
+            animation: blink 1s steps(1) infinite;
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        
+        .marquee {
+            margin: 20px 0;
+            padding: 5px;
+            background: #FFFF00;
+            color: #FF0000;
+            font-weight: bold;
+        }
+        
+        .guestbook {
+            margin: 20px auto;
+            padding: 10px;
+            background: #FFF;
+            border: 3px dotted #FF69B4;
+            text-align: left;
+            max-width: 500px;
+        }
+        
+        .guestbook h3 {
+            text-align: center;
+            color: #0000FF;
+            border-bottom: 2px dashed #0000FF;
+            padding-bottom: 5px;
+        }
