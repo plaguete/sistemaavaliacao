@@ -1,51 +1,57 @@
-// public/script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const stars = document.querySelectorAll('.star');
+    const submitBtn = document.getElementById('submit-btn');
+    const reviewInput = document.getElementById('review-input');
+    const message = document.getElementById('message');
+    let rating = 0;
 
-const registerForm = document.getElementById('registerForm');
-const loginForm = document.getElementById('loginForm');
-const messageDiv = document.getElementById('message');
-
-const showMessage = (msg, isError = false) => {
-    messageDiv.textContent = msg;
-    messageDiv.className = `message ${isError ? 'error' : 'success'}`;
-};
-
-registerForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const username = document.getElementById('regUser').value;
-    const password = document.getElementById('regPass').value;
-
-    const res = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            rating = parseInt(star.dataset.value);
+            updateStars(rating);
+            submitBtn.disabled = false;
+        });
     });
 
-    const data = await res.json();
-    if (res.ok) {
-        showMessage(data.message, false);
-        // Limpa os inputs do formulário de registro
-        registerForm.reset();
-    } else {
-        showMessage(data.message, true);
+    function updateStars(rate) {
+        stars.forEach(star => {
+            if (parseInt(star.dataset.value) <= rate) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
+        });
     }
-});
 
-loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const username = document.getElementById('loginUser').value;
-    const password = document.getElementById('loginPass').value;
+    submitBtn.addEventListener('click', async () => {
+        const review = reviewInput.value;
+        submitBtn.disabled = true;
+        message.textContent = 'Enviando...';
 
-    const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        try {
+            const response = await fetch('/api/rate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ rating, review })
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                message.textContent = 'Obrigado por sua avaliação!';
+                reviewInput.value = '';
+                rating = 0;
+                updateStars(0);
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 3000);
+            } else {
+                throw new Error(result.error || 'Erro ao enviar avaliação.');
+            }
+        } catch (error) {
+            message.textContent = `Erro: ${error.message}`;
+            submitBtn.disabled = false;
+        }
     });
-
-    const data = await res.json();
-    if (res.ok) { // res.ok verifica status 200-299
-        // Redireciona para a página de sucesso, passando o nome do usuário como parâmetro
-        window.location.href = `success.html?user=${data.username}`;
-    } else {
-        showMessage(data.message, true);
-    }
 });
