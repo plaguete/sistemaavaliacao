@@ -360,22 +360,4 @@
             padding: 10px;
         }
 
-        .last-review {
-            position: fixed;
-            left: 50px;
-            top: 100px;
-            z-index: 1000;
-            display: none; /* Inicialmente escondido */
-        }
         
-        .last-review .title {
-            cursor: move;
-        }
-        
-        .last-review .close-button {
-            cursor: pointer;
-        }
-        
-        .last-review .ok {
-            cursor: pointer;
-        }
