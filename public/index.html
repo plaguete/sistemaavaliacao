@@ -33,20 +33,22 @@
     </div>
 </div>
 
-<div class="last-review" style="left: 50px; top: 100px;">
-    <div class="error">
-        <div class="title">
-            <span>Última Avaliação</span>
-            <div class="close-button">×</div>
+<template id="review-template">
+    <div class="last-review">
+        <div class="error">
+            <div class="title">
+                <span>Última Avaliação</span>
+                <div class="close-button">×</div>
+            </div>
+            <div class="message">
+                <div class="review-content"></div>
+            </div>
+            <button class="ok">
+                <span>OK</span>
+            </button>
         </div>
-        <div class="message">
-            <div id="review-container"></div>
-        </div>
-        <button class="ok">
-            <span>OK</span>
-        </button>
     </div>
-</div>
+</template>
 
         <div class="window-content">
             <div id="review-container"></div>

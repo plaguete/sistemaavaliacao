@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submit-btn');
     const reviewInput = document.getElementById('review-input');
     const message = document.getElementById('message');
-    const reviewContainer = document.getElementById('review-container');
     let rating = 0;
+    let reviewCount = 0;
 
     // Função para criar estrelas de avaliação
     function createStarRating(rating) {
@@ -21,8 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return container;
     }
 
-    // Função para renderizar a avaliação
-    function renderReview(data) {
+    // Função para criar um novo pop-up de avaliação
+    function createReviewPopup(data) {
+        reviewCount++;
+        const template = document.getElementById('review-template');
+        const clone = template.content.cloneNode(true);
+        const popup = clone.querySelector('.last-review');
+        
+        // Posiciona o pop-up em posições diferentes
+        popup.style.left = (50 + (reviewCount * 20)) + 'px';
+        popup.style.top = (100 + (reviewCount * 20)) + 'px';
+        
+        // Preenche o conteúdo da avaliação
+        const reviewContent = popup.querySelector('.review-content');
         const card = document.createElement('div');
         card.className = 'review-card';
         
@@ -35,18 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
         comment.textContent = data.review || 'Sem comentário';
         card.appendChild(comment);
         
-        // Limpa o container e adiciona o novo card
-        reviewContainer.innerHTML = '';
-        reviewContainer.appendChild(card);
-    }
+        reviewContent.appendChild(card);
+        
+        // Adiciona o pop-up ao documento
+        document.body.appendChild(popup);
+        
+        // Torna o pop-up arrastável
+        makeDraggable(popup);
+        
+        // Adiciona eventos para os botões de fechar
+        popup.querySelector('.close-button').addEventListener('click', function() {
+            popup.remove();
+        });
 
-    // Função para mostrar mensagem quando não há avaliações
-    function showNoReviewMessage() {
-        reviewContainer.innerHTML = '<p class="no-review">Nenhuma avaliação ainda</p>';
+        popup.querySelector('.ok').addEventListener('click', function() {
+            popup.remove();
+        });
+        
+        return popup;
     }
-
-    // Inicialmente mostra a mensagem de nenhuma avaliação
-    showNoReviewMessage();
 
     stars.forEach(star => {
         star.addEventListener('click', () => {
@@ -86,10 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 reviewInput.value = '';
                 rating = 0;
                 updateStars(0);
-                renderReview(result.data);
                 
-                // Mostra o pop-up de última avaliação
-                document.querySelector('.last-review').style.display = 'block';
+                // Cria um novo pop-up para esta avaliação
+                createReviewPopup(result.data);
                 
                 setTimeout(() => {
                     message.textContent = '';
@@ -140,17 +157,4 @@ document.addEventListener('DOMContentLoaded', () => {
             document.onmousemove = null;
         }
     }
-
-    // Torne a janela arrastável
-    const lastReview = document.querySelector('.last-review');
-    makeDraggable(lastReview);
-    
-    // Adicione eventos para os botões de fechar e OK
-    document.querySelector('.last-review .close-button').addEventListener('click', function() {
-        lastReview.style.display = 'none';
-    });
-
-    document.querySelector('.last-review .ok').addEventListener('click', function() {
-        lastReview.style.display = 'none';
-    });
 });
