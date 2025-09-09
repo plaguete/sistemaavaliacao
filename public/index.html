@@ -6,150 +6,43 @@
     <title>Avalie nosso App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<div class="geocities-banner">★ Bem-vindo ao meu site de avaliações! ★</div>
-    
-    <div class="marquee">
-        <marquee behavior="scroll" direction="left">✨ Site melhor visualizado no Internet Explorer 6.0 com resolução 800x600 ✨</marquee>
-    </div>
-    
-    <div class="counter">
-        <img src="https://web.archive.org/web/20090829054058if_/http://geocities.ws/ezclick/count.php?digits=7&type=counter&colorb=black&color2=ffffff&color1=blue" alt="contador de visitas">
-    </div>
-    
-    <div class="container window">
-        <div class="title-bar">
-            <div class="title-bar-text">Avalie Nosso App</div>
-            <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close"></button>
+<div class="desktop">
+    <div class="window">
+        <div class="window-header">
+            <span>Avalie nosso App</span>
+            <div class="window-buttons">
+                <div class="window-button close"><p>×</p></div>
             </div>
         </div>
-        <div class="window-body">
+        <div class="window-content">
             <h1>Avalie nosso App</h1>
-            
-            <p>Selecione quantas estrelas merecemos!</p>
-            
             <div class="rating-stars">
-                <span class="star" data-value="1">★</span>
-                <span class="star" data-value="2">★</span>
-                <span class="star" data-value="3">★</span>
-                <span class="star" data-value="4">★</span>
-                <span class="star" data-value="5">★</span>
+                <img src="https://blob.gifcities.org/gifcities/AOYTPUI6EAC37U2YBBXCVHSDXYXUM4DB.gif" class="star" data-value="1" alt="Avaliação 1 urso">
+                <img src="https://blob.gifcities.org/gifcities/AOYTPUI6EAC37U2YBBXCVHSDXYXUM4DB.gif" class="star" data-value="2" alt="Avaliação 2 ursos">
+                <img src="https://blob.gifcities.org/gifcities/AOYTPUI6EAC37U2YBBXCVHSDXYXUM4DB.gif" class="star" data-value="3" alt="Avaliação 3 ursos">
+                <img src="https://blob.gifcities.org/gifcities/AOYTPUI6EAC37U2YBBXCVHSDXYXUM4DB.gif" class="star" data-value="4" alt="Avaliação 4 ursos">
+                <img src="https://blob.gifcities.org/gifcities/AOYTPUI6EAC37U2YBBXCVHSDXYXUM4DB.gif" class="star" data-value="5" alt="Avaliação 5 ursos">
             </div>
-            
-            <p>Clique em uma estrela para avaliar</p>
-            
-            <fieldset>
-                <legend>Deixe seu comentário (opcional)</legend>
-                <textarea id="review-input" placeholder="Escreva sua opinião aqui..."></textarea>
-            </fieldset>
-            
-            <div class="field-row" style="justify-content: center">
+            <p class="rating-text">Clique em um urso para avaliar</p>
+            <textarea id="review-input" placeholder="Escreva uma resenha (opcional)..."></textarea>
+            <div class="button-container">
                 <button id="submit-btn" disabled>Enviar Avaliação</button>
             </div>
-            
             <p id="message"></p>
         </div>
     </div>
-    
-    <div class="guestbook">
-        <h3>📝 Livro de Visitas</h3>
-        <p>Assine nosso livro de visitas!</p>
-        <div class="field-row">
-            <input type="text" placeholder="Seu nome" />
-        </div>
-        <div class="field-row">
-            <textarea placeholder="Deixe uma mensagem"></textarea>
-        </div>
-        <div class="field-row">
-            <button>Assinar</button>
-        </div>
-    </div>
-    
-    <div style="text-align: center; margin: 20px;">
-        <img src="https://web.archive.org/web/20091026180821/http://geocities.com/Hollywood/Hills/1350/bestviewed.gif" alt="Melhor visualizado com Netscape Navigator">
-        <img src="https://web.archive.org/web/20091027045523/http://www.geocities.com/EnchantedForest/Cottage/4756/star3.gif" alt="Estrela decorativa">
-        <img src="https://web.archive.org/web/20091027045523/http://www.geocities.com/EnchantedForest/Cottage/4756/star3.gif" alt="Estrela decorativa">
-        <img src="https://web.archive.org/web/20091027045523/http://www.geocities.com/EnchantedForest/Cottage/4756/star3.gif" alt="Estrela decorativa">
-    </div>
-    
-    <div style="text-align: center; color: #FFF; background: #000; padding: 10px; margin-top: 20px;">
-        <p class="blink">Última atualização: Setembro de 2025</p>
-        <p>© 2025 - Meu Site de Avaliações - Todos os direitos reservados</p>
-        <p>Email: <a href="mailto:webmaster@avaliacoes.com" style="color: #FF0;">webmaster@avaliacoes.com</a></p>
-    </div>
+</div>
 
-    <!-- Player de música oculto (autoplay) -->
-    <iframe src="https://www.youtube.com/embed/7nQ2oiVqKHw?&autoplay=1&loop=1&playlist=7nQ2oiVqKHw" frameborder="0" style="visibility: hidden; height: 20px; width: 0%;"></iframe>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const stars = document.querySelectorAll('.star');
-            const submitBtn = document.getElementById('submit-btn');
-            const message = document.getElementById('message');
-            const reviewInput = document.getElementById('review-input');
-            let selectedRating = 0;
-            
-            // Adicionar eventos para as estrelas
-            stars.forEach(star => {
-                star.addEventListener('click', function() {
-                    selectedRating = this.getAttribute('data-value');
-                    resetStars();
-                    highlightStars(selectedRating);
-                    submitBtn.disabled = false;
-                });
-                
-                star.addEventListener('mouseover', function() {
-                    const value = this.getAttribute('data-value');
-                    resetStars();
-                    highlightStars(value);
-                });
-                
-                star.addEventListener('mouseout', function() {
-                    resetStars();
-                    highlightStars(selectedRating);
-                });
-            });
-            
-            // Função para resetar as estrelas
-            function resetStars() {
-                stars.forEach(star => {
-                    star.classList.remove('active');
-                });
-            }
-            
-            // Função para destacar as estrelas
-            function highlightStars(value) {
-                stars.forEach(star => {
-                    if (star.getAttribute('data-value') <= value) {
-                        star.classList.add('active');
-                    }
-                });
-            }
-            
-            // Evento de envio
-            submitBtn.addEventListener('click', function() {
-                message.innerHTML = `
-                    <span class="blink">Obrigado pela sua avaliação de ${selectedRating} estrelas!</span>
-                    <br>
-                    <img src="https://web.archive.org/web/20091027045523/http://www.geocities.com/EnchantedForest/Cottage/4756/star3.gif" alt="Estrela">
-                    Seu comentário: ${reviewInput.value || 'Nenhum comentário fornecido.'}
-                `;
-                
-                // Resetar o formulário
-                selectedRating = 0;
-                resetStars();
-                reviewInput.value = '';
-                submitBtn.disabled = true;
-                
-                // Efeito de agradecimento exagerado
-                const fireworks = document.createElement('div');
-                fireworks.innerHTML = '<marquee behavior="alternate" direction="right"><span style="color: red; font-size: 24px;">✨ OBRIGADO! ✨</span></marquee>';
-                message.appendChild(fireworks);
-            });
-        });
-    </script>
+<div class="taskbar">
+    <div class="start-button">
+        <img src="https://www.rw-designer.com/icon-image/18835-256x256x8.png" alt="Ícone Windows">
+        Iniciar
+    </div>
+    <div class="taskbar-items">
+        <div class="taskbar-item"><img src="https://www.freeiconspng.com/thumbs/internet-ie-icon/ie-icon-16.png" alt="">Internet Explorer</div>
+        <div class="taskbar-item"><img src="https://blob.gifcities.org/gifcities/FL4BY72GUYQT4DDS5VZVTENTJJK6BFQJ.gif" alt="">Feito por Plagute ಥ_ಥ</div>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

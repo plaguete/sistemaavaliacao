@@ -1,130 +1,245 @@
-        /* Estilo Geocities - Windows XP Theme */
-        @import url('https://unpkg.com/xp.css');
-        
-        body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: #008080 url('https://web.archive.org/web/20091027053831/http://geocities.com/psiserver/backgrounds/background26.gif');
-            color: #000;
+        /* Estilo Windows XP - Adaptado da página fornecida */
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Tahoma", "Verdana", sans-serif;
         }
         
-        .container {
-            background: #FFE4E1;
-            border: 4px double #FF69B4;
+        body {
+            background-image: url(https://external-preview.redd.it/r6g38aXSaQWtd1KxwJbQ-Fs5jtSVDxX3wtLHJEdqixw.jpg?width=1080&crop=smart&auto=webp&s=87a2c94cb3e1561e2b6abd467ea68d81b9901720);
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        
+        .desktop {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+        }
+        
+        .window {
+            background-color: #ece9d8;
+            border: 2px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .window-header {
+            background: linear-gradient(to right, #000080, #1084d0);
+            color: white;
+            padding: 4px 8px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 24px;
+            font-size: 13px;
+        }
+        
+        .window-content {
             padding: 20px;
-            width: 500px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: auto;
+        }
+        
+        .window-buttons {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .window-button {
+            width: 18px;
+            height: 16px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ece9d8;
+            border: 1px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            cursor: pointer;
+        }
+
+        .window-button p {
+            margin-bottom: 2px;
+        }
+        
+        .window-button.close {
+            background: linear-gradient(90deg, rgba(155, 42, 42, 1) 76%, rgba(219, 219, 219, 1) 100%);
+        }
+        
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 36px;
+            background-color: #c0c0c0;
+            border-top: 2px solid #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            z-index: 100;
+        }
+        
+        .start-button {
+            height: 28px;
+            padding: 0 6px 0 4px;
+            background: linear-gradient(to bottom, #008000, #004000);
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            border: 2px solid;
+            border-top-color: #c0c0c0;
+            border-left-color: #c0c0c0;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        
+        .taskbar  img {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .taskbar-items {
+            display: flex;
+            margin-left: 12px;
+            gap: 6px;
+        }
+        
+        .taskbar-item {
+            height: 28px;
+            padding: 0 12px;
+            background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+            display: flex;
+            align-items: center;
+            border: 2px solid;
+            border-top-color: #f0f0f0;
+            border-left-color: #f0f0f0;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            cursor: pointer;
+            font-size: 12px;
         }
         
         h1 {
-            color: #FF0000;
-            text-shadow: 2px 2px 0 #FFD700;
-            font-size: 28px;
-            background: url('https://web.archive.org/web/20091027045523/http://www.geocities.com/EnchantedForest/Cottage/4756/star3.gif') no-repeat center top;
-            padding-top: 40px;
-            margin-top: 0;
+            color: #000080;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #000;
         }
         
         .rating-stars {
-            font-size: 3rem;
-            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             margin: 1.5rem 0;
+            cursor: pointer;
         }
         
         .star {
-            color: #CCC;
-            transition: color 0.2s;
-            text-shadow: 2px 2px 0 #888;
+            width: 50px;
+            height: 50px;
+            transition: transform 0.2s;
+            filter: grayscale(100%) brightness(70%);
         }
         
         .star.active {
-            color: #FFD700;
-            text-shadow: 2px 2px 0 #FF8C00;
+            filter: none;
+            transform: scale(1.2);
         }
         
         .star:hover {
-            color: #FFA500;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
             transform: scale(1.1);
-        }
-        
-        .star.active:hover {
-            text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
-            transform: scale(1.15);
+            filter: grayscale(50%) brightness(90%);
         }
         
         textarea {
-            width: 90%;
+            width: 100%;
             height: 100px;
             margin: 1rem 0;
             padding: 10px;
-            border: 2px inset;
-            background: #FFF;
+            border-radius: 0;
+            border: 2px solid;
+            border-top-color: #808080;
+            border-left-color: #808080;
+            border-right-color: #f0f0f0;
+            border-bottom-color: #f0f0f0;
+            background-color: #ffffff;
             color: #000;
             resize: none;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 13px;
         }
         
         #submit-btn {
-            margin: 10px 0;
+            padding: 8px 20px;
+            border: 2px solid;
+            border-top-color: #f0f0f0;
+            border-left-color: #f0f0f0;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+            background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+            color: #000;
+            cursor: pointer;
+            font-size: 13px;
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+        }
+        
+        #submit-btn:hover:not(:disabled) {
+            background: linear-gradient(to bottom, #a0a0a0, #808080);
+        }
+        
+        #submit-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
         }
         
         #message {
             margin-top: 1rem;
-            font-size: 1rem;
-            color: #008000;
-            font-weight: bold;
-        }
-        
-        .geocities-banner {
-            margin: 20px auto;
+            font-size: 13px;
+            color: #000080;
             text-align: center;
-            padding: 10px;
-            background: #000080;
-            color: #FFF;
             font-weight: bold;
-            border: 2px solid #FFD700;
         }
         
-        .counter {
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .rating-text {
             text-align: center;
-            margin: 20px 0;
-            font-size: 24px;
-            color: #FF0000;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #000080;
             font-weight: bold;
-        }
-        
-        .blink {
-            animation: blink 1s steps(1) infinite;
-        }
-        
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        
-        .marquee {
-            margin: 20px 0;
-            padding: 5px;
-            background: #FFFF00;
-            color: #FF0000;
-            font-weight: bold;
-        }
-        
-        .guestbook {
-            margin: 20px auto;
-            padding: 10px;
-            background: #FFF;
-            border: 3px dotted #FF69B4;
-            text-align: left;
-            max-width: 500px;
-        }
-        
-        .guestbook h3 {
-            text-align: center;
-            color: #0000FF;
-            border-bottom: 2px dashed #0000FF;
-            padding-bottom: 5px;
         }
