@@ -80,7 +80,9 @@
         }
         
         .window-button.close {
+            color: white;
             background: linear-gradient(90deg, rgba(155, 42, 42, 1) 76%, rgba(219, 219, 219, 1) 100%);
+            border: white 1px;
         }
         
         .taskbar {
