@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para criar um novo pop-up de avaliação
     function createReviewPopup(data) {
         reviewCount++;
+        
+        // Cria um novo elemento a partir do template
         const template = document.getElementById('review-template');
         const clone = template.content.cloneNode(true);
         const popup = clone.querySelector('.last-review');
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Posiciona o pop-up em posições diferentes
         popup.style.left = (50 + (reviewCount * 20)) + 'px';
         popup.style.top = (100 + (reviewCount * 20)) + 'px';
+        popup.style.display = 'block';
         
         // Preenche o conteúdo da avaliação
         const reviewContent = popup.querySelector('.review-content');
@@ -62,8 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         popup.querySelector('.ok').addEventListener('click', function() {
             popup.remove();
         });
-        
-        return popup;
     }
 
     stars.forEach(star => {
